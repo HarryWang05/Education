@@ -1,20 +1,21 @@
 var express = require('express');
 var router = express.Router();
+const {
+  dbPassword,
+} = require("../info.json");
 
-const dotenv = require('dotenv');
-dotenv.config();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-/*
+
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "fengzhang",
-  password: process.env.dbPassword
+  password: dbPassword
 });
 
 con.connect(function(err) {
@@ -23,7 +24,7 @@ con.connect(function(err) {
 });
 
 
-//This can read and write from database VERY IMPORTANT
+/*This can read and write from database VERY IMPORTANT
 con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
@@ -32,9 +33,9 @@ con.connect(function(err) {
       console.log("Result: " + result);
     });
   });
+*/
 
-
-//Creates a database
+/*Creates a database
 con.connect(function(err) {
 if (err) throw err;
 console.log("Connected!");
@@ -44,7 +45,8 @@ con.query("CREATE DATABASE testDB", function (err, result) {
 });
 });
 */
-/* Creates a table in a database
+
+/*Creates a table in a database
 var con = mysql.createConnection({
     host: "localhost",
     user: "yourusername",
@@ -72,6 +74,6 @@ var con = mysql.createConnection({
     console.log("1 record inserted");
   });
 });
-  */
+*/
 
 module.exports = router;
