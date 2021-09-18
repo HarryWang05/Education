@@ -4,12 +4,30 @@ const {
   dbPassword,
 } = require("../info.json");
 
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+module.exports = router;
+
+
+/*
+SELECT - extracts data from a database
+UPDATE - updates data in a database
+DELETE - deletes data from a database
+INSERT INTO - inserts new data into a database
+CREATE DATABASE - creates a new database
+ALTER DATABASE - modifies a database
+CREATE TABLE - creates a new table
+ALTER TABLE - modifies a table
+DROP TABLE - deletes a table
+CREATE INDEX - creates an index (search key)
+DROP INDEX - deletes an index
+
+
+/*
 var mysql = require('mysql');
 var name = "loginInfo";
 
@@ -40,28 +58,35 @@ con.connect(function(err) {
     console.log("Table " +username +" created");
   });
 
-  //GETS THE DATE
-  var today = new Date();
-  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-
-  //INSERTS USERNAME AND PASSWORD INTO TABLE
-  var sql = "INSERT INTO userInfo (name, password, dateCreated) VALUES ('"+username+"', '"+password+"', '"+date+"')";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
-  });
-
   //PRINTS OUT THE DATA IN TABLE
   con.query('SELECT * FROM userInfo', (err,rows) => {
     if(err) throw err;
   
     console.log('Data received from ' +name+':');
-    console.log(rows[0]);
+    console.log(rows);
+    numberofUSERS = rows.length;
+    console.log(numberofUSERS);
 
-    
+    for (var i = 0; i < numberofUSERS; i++) {
+      if (rows[i] == username){
+        continue;
+      }
+      else {
+        //GETS THE DATE
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+        //INSERTS USERNAME AND PASSWORD INTO TABLE
+        var sql = "INSERT INTO userInfo (name, password, dateCreated) VALUES ('"+username+"', '"+password+"', '"+date+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+          console.log("1 record inserted");
+  });
+      }
+    }
   });
 });
-
+*/
 
 //Takes username, creates table and fills in username and password for this user
 /*
@@ -137,22 +162,5 @@ var con = mysql.createConnection({
 });
 */
 
-module.exports = router;
 
-
-
-
-
-/*
-SELECT - extracts data from a database
-UPDATE - updates data in a database
-DELETE - deletes data from a database
-INSERT INTO - inserts new data into a database
-CREATE DATABASE - creates a new database
-ALTER DATABASE - modifies a database
-CREATE TABLE - creates a new table
-ALTER TABLE - modifies a table
-DROP TABLE - deletes a table
-CREATE INDEX - creates an index (search key)
-DROP INDEX - deletes an index
 */

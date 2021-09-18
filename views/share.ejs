@@ -17,3 +17,46 @@
     <div>
     <A HREF = "/" >select topic</A>
     </div>
+
+    <div id= "Selection">
+        <form action= "/share" method="POST">
+            <label for="resource">Resource:</label>
+            <input type="url" name="resource" autofocus placeholder="link of resource" required>
+            <br>
+            <label for= "topic">Topic: </label>
+            <select name= "topic" required>
+                
+                <option value= "0" selected disabled>Subject</option>
+                <option value= "Math">Math</option>
+                <option value= "Science">Science</option>
+                <option value= "CS">CS</option>
+                <option value= "French">French</option>
+                <option value= "English">English</option>
+                <option value= "Art">Art</option>
+
+                </select>
+            <br>
+            <button type="submit" name="submit">Share</button>
+            </div>
+            <style>
+                body {
+                    background-color: rgb(255, 255, 255)
+                }
+                .footer {
+                    position: fixed;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    background-color: rgb(255, 30, 0);
+                    color: white;
+                    text-align: center;
+                    font-style: bold;
+                    padding:5px 0px 5px 10px;
+                    }
+            </style>
+            <div class="footer">
+                <p>WARNING: The distribution of explicit images or videos will result in a permanent ban</p>
+            </div>
+        </div>
+    </head>
+</html>
