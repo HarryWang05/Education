@@ -1,0 +1,7 @@
+nav {
+    padding: 2%;
+    position: fixed;
+    width: 96%;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}

@@ -2,9 +2,15 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
 const name = "loginInfo";
+let cookieParser = require('cookie-parser');
+let app = express()
+app.use(cookieParser());
+
+
 const {
     dbPassword,
 } = require("../info.json");
+//const { crypto_secretstream_xchacha20poly1305_keygen } = require('libsodium-wrappers');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,13 +20,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res) {
+    let what_to_render = true;
+    var where = false;
     let username = req.body["username"];
     let password = req.body["password"];
     console.log(username);
     console.log(password);
 
 
-    //ADDS THE USER TO THE DATABASE
+    //Connects to MYSQL
     var con = mysql.createConnection({
         host: "localhost",
         user: "fengzhang",
@@ -28,44 +36,60 @@ router.post('/', function(req, res) {
         database: name
     });
 
+    con.query('SELECT * FROM userInfo', (err, rows) => {
+        if (err) throw err;
+        numberofUSERS = rows.length;
+        console.log(numberofUSERS);
+        var duplicatedUser = false;
+        var index = 0;
 
-
-    var duplicatedUser = false;
-
-    //If username exists
-    for (var i = 0; i < numberofUSERS; i++) {
-        if (rows[i]["name"] == username) {
-            duplicatedUser = true;
+        //If username exists
+        for (var i = 0; i < numberofUSERS; i++) {
+            if (rows[i]["name"] == username) {
+                duplicatedUser = true;
+                index = i;
+            }
         }
-    }
+        //If user doesn't exist on the database 
+        if (duplicatedUser == false) {
+            //Show on the screen "This user doesnt exist"
 
-    //If user doesn't exist on the database 
-    if (duplicatedUser == false) {
-        //GETS THE DATE
-        var today = new Date();
-        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
-        //INSERTS USERNAME AND PASSWORD INTO TABLE
-        var sql = "INSERT INTO userInfo (name, password, dateCreated) VALUES ('" + username + "', '" + password + "', '" + date + "')";
-        con.query(sql, function(err, result) {
-            if (err) throw err;
-            console.log("1 record insserted");
-        });
-    } else {
-
-    }
-
-    console.log('Data received from ' + name + ':');
-    console.log(rows);
+        } else {
+            if (password == rows[index]["password"]) {
+                where = true;
+                //you have logged in
+                //res.cookie("login", username);
 
 
 
-    res.render('index', {
-        title: 'Express'
+            } else {
+                console.log("WRONG PASSWORD");
+                //wrong password
+            }
+
+        }
+        console.log(where + '     outside');
+        console.log('ttttttt');
+        if (what_to_render == true) {
+            console.log(where);
+            if (where) {
+                res.cookie("login", username);
+            }
+            res.render('index', {
+                title: 'Express'
+            });
+        } else {
+            console.log(where);
+            if (where) {
+                res.cookie("login", username);
+            }
+            res.render('index', {
+                title: 'Express'
+            });
+        }
+
     });
-
-
-
 });
+
 
 module.exports = router;
