@@ -1,13 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+/*
 var mysql = require('mysql');
-const express = require('express')
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "fengzhang",
-  password: "#Zyf340982495"
+  password: process.env.dbPassword
 });
 
 con.connect(function(err) {
@@ -31,12 +38,12 @@ con.connect(function(err) {
 con.connect(function(err) {
 if (err) throw err;
 console.log("Connected!");
-con.query("CREATE DATABASE mydb", function (err, result) {
+con.query("CREATE DATABASE testDB", function (err, result) {
     if (err) throw err;
     console.log("Database created");
 });
 });
-
+*/
 /* Creates a table in a database
 var con = mysql.createConnection({
     host: "localhost",
@@ -66,10 +73,5 @@ var con = mysql.createConnection({
   });
 });
   */
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
 module.exports = router;
