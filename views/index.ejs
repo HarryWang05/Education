@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <head>
+        <title>Google Domains</title>
+        <style>
+            h1 {text-align: center;}
+        </style> 
+    </head>
+    <body>
+
+    <h1 id="topicselection" style = "text-align:center;"> Topic Selection </h1>
+       
+    
+      
+    <div id= "Selection">
+        <form action= "action_page.php" target="_blank" method="get">
+            <label for="First name">Name</label>
+            <input type="text" name = "first-name">
+
+
+            <label for= "topic">Topic: </label>
+            <select name= "topic">
+                
+                <option value= "0" selected disabled>Subject</option>
+                <option value= "Math">Math</option>
+                <option value= "Science">Science</option>
+                <option value= "CS">CS</option>
+                <option value= "French">French</option>
+                <option value= "English">English</option>
+                <option value= "Art">Art</option>
+                <script src="index.js"></script>
+                </select>
+            <div>
+
+            <button type= "submit" value="Submit">Submit</button>
+            <button onclick= "displayResult()">Change</button>
+            </div>
+
+        
+
+            
+
+        
+
+
+
+
+    </body>
 </html>
