@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('login', { title: 'Express' });
+    res.render('signup', { title: 'Express' });
 });
 
 router.post('/', function(req, res) {
@@ -11,7 +10,7 @@ router.post('/', function(req, res) {
     let password = req.body["password"];
     console.log(username);
     console.log(password);
-    console.log("login");
+    console.log("signup");
     res.render('index', { title: 'Express' });
 });
 

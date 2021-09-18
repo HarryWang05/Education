@@ -11,17 +11,78 @@ router.get('/', function(req, res, next) {
 });
 
 var mysql = require('mysql');
+var name = "loginInfo";
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "fengzhang",
-  password: dbPassword
+  password: dbPassword,
+  database: name
 });
+
+
+//CREATES DATABASE IF IT DOESNT EXIST
+var username = "smth";
+var password = 'thisisapassword'
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Connected!")
+  con.query("CREATE DATABASE IF NOT EXISTS " + name, function (err, result) {
+    if (err) throw err;
+    console.log("Database created");
+  });
+  
+  //CREATES TABLE IF IT DOESNT EXIST
+  var sql = "CREATE TABLE IF NOT EXISTS userInfo (name VARCHAR(255), password VARCHAR(255), dateCreated VARCHAR(255))";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table " +username +" created");
+  });
+
+  //GETS THE DATE
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+  //INSERTS USERNAME AND PASSWORD INTO TABLE
+  var sql = "INSERT INTO userInfo (name, password, dateCreated) VALUES ('"+username+"', '"+password+"', '"+date+"')";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+  });
+
+  //PRINTS OUT THE DATA IN TABLE
+  con.query('SELECT * FROM userInfo', (err,rows) => {
+    if(err) throw err;
+  
+    console.log('Data received from ' +name+':');
+    console.log(rows[0]);
+
+    
+  });
 });
+
+
+//Takes username, creates table and fills in username and password for this user
+/*
+var username = "smth";
+con.connect(function(err) {
+  if (err) throw err;
+  var sql = "CREATE TABLE smth (name VARCHAR(255), address VARCHAR(255))";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table created");
+  });
+
+
+  con.query("SHOW DATABASES LIKE 'loginInfo'"
+  , function (err, result) {
+    if (err) throw err;
+    console.log("Table created");
+  });
+
+});
+*/
 
 
 /*This can read and write from database VERY IMPORTANT
@@ -77,3 +138,21 @@ var con = mysql.createConnection({
 */
 
 module.exports = router;
+
+
+
+
+
+/*
+SELECT - extracts data from a database
+UPDATE - updates data in a database
+DELETE - deletes data from a database
+INSERT INTO - inserts new data into a database
+CREATE DATABASE - creates a new database
+ALTER DATABASE - modifies a database
+CREATE TABLE - creates a new table
+ALTER TABLE - modifies a table
+DROP TABLE - deletes a table
+CREATE INDEX - creates an index (search key)
+DROP INDEX - deletes an index
+*/
