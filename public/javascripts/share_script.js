@@ -4,7 +4,6 @@ const cookies = input[0].split("=");*/
 let cookies = document.cookie.split("=");
 
 function getCookie(name) {
-    alert("Function");
     const input = document.cookie.split(";");
     var names = [];
     var values = [];

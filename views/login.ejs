@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
-        <link rel="stylesheet" href="login.css">
-        <style>
-            h1 {text-align: center;}
-        </style> 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <title>login</title>
+        <link rel="stylesheet" href="stylesheets/login.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <h1 name="topic" id="topicselection" style = "text-align:center;"> Login</h1>
+      <div id="header">
+        <h1 id="topicselection" style = "text-align:center;"> Rebound Education </h1>
+      </div>
+      <div id="nav">
+        <a href="/">Home</a>  
+        <a href="share">Share</a>  
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact Us</a>  
+        <a href="google.com">About Us</a>  
+        <a href="/">Log In</a>
+      </div>    
+          <div>
+          <br/>
+          <br/>
+          <br/>
+    <div id="row1"> <img src="Logo.png" alt="Our Logo" width=450px length =450px id="first">
         <div>
-        <A HREF = "/" >Home</A>
         </div>
-        
         <div id= "Selection">
             <form action= "/login" method="POST">
-                <label for="username">Username:</label>
+                <label class="logindetails" for="username">Username:</label>
                 <input type="text" name="username" autofocus placeholder="Username">
                 <br>
-                <label for="password">Password:</label>
+                <label class="logindetails" for="password">Password:</label>
                 <input type="password" name="password" placeholder="Password">
                 <br>
                 <button type="submit" name="submit">Submit</button>
@@ -30,6 +39,10 @@
             <div class="footer">
                 <p>Email WillTran@domain.com to troubleshoot any login issues</p>
             </div>
-        </div>
+    
+    <div class="footer">
+        <p>Email us at: Nathan@reboundeducation.com</p>
+        <p>Follow us @reboundeducation</p>
+    </div>
     </body>
 </html>

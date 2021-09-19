@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
-        <link rel="stylesheet" href="share.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <title>share</title>
+        <link rel="stylesheet" href="stylesheets/login.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-
-    <h1 name="topic" id="topicselection" style = "text-align:center;"> Share a video</h1>
-    <div>
-    <A HREF = "/" >select topic</A>
-    </div>
-
-    <button onclick="checkCookie()">cookie</button>
-
-    
+      <div id="header">
+        <h1 id="topicselection" style = "text-align:center;"> Rebound Education </h1>
+      </div>
+      <div id="nav"> <a href="/">Home</a>  
+        <a href="/">Share</a>  
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact Us</a>  
+        <a href="google.com">About Us</a>  
+        <a href="login">Log In</a>
+      </div>    
+          <div>
+          <br/>
+          <br/>
+          <br/>e
+    <div id="row1"> <img src="Logo.png" alt="Our Logo" width=450px length =450px id="first">
     
     <div id= "Selection">
         <form action= "/share" method="POST">
@@ -38,9 +43,11 @@
             </span>
             </div>
             
-            <div class="footer">
-                <p>WARNING: The distribution of explicit images or videos will result in a permanent ban</p>
-            </div>
+    <div class="footer">
+        <p>Email us at: Nathan@reboundeducation.com</p>
+        <p>Follow us @reboundeducation</p>
+    </div>
+    </body>
         </form>
         <span id="fakeButton">
             <button onclick="notsigned()">Share</button>
