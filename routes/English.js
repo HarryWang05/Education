@@ -5,7 +5,7 @@ const name = "resources";
 const {
     dbPassword,
 } = require("../info.json");
-const topic = "CS";
+const topic = "English";
 var URLS = [];
 
  
@@ -13,7 +13,7 @@ var URLS = [];
 
 
 router.get('/', function(req, res, next) {
-    res.render('CS', { 
+    res.render('English', { 
         title: 'Express', url: URLS });
   });
 
@@ -57,5 +57,11 @@ con.connect(function(err) {
     });
     
 });
+
+function theURLS () {
+    return URLS;
+}
+
+module.exports = theURLS;
 
 module.exports = router;

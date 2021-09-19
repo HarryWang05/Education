@@ -9,6 +9,12 @@ var loginRouter = require('./routes/login');
 var shareRouter = require('./routes/share');
 var signupRouter = require('./routes/signup');
 var CSRouter = require('./routes/CS');
+var MathRouter = require('./routes/Math');
+var ScienceRouter = require('./routes/Science');
+var FrenchRouter = require('./routes/French');
+var EnglishRouter = require('./routes/English');
+var LawRouter = require('./routes/Law');
+
 
 var app = express();
 
@@ -27,6 +33,12 @@ app.use('/login', loginRouter);
 app.use('/share', shareRouter);
 app.use('/signup', signupRouter);
 app.use('/CS', CSRouter);
+app.use('/Math', MathRouter);
+app.use('/Science', ScienceRouter);
+app.use('/French', FrenchRouter);
+app.use('/English', EnglishRouter);
+app.use('/Law', LawRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
