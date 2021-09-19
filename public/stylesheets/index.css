@@ -36,6 +36,20 @@ a {
   line-height: 400%;
   font-size: 13px;
 }
+.warning {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(148, 7, 7);
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: center;
+    font-family: sans-serif;
+    line-height: 400%;
+    font-size: 13px;
+  }
 rectangle {
   position: absolute;
   width: 374px;
@@ -74,4 +88,10 @@ img {
 }
 #last {
   float: right;
+}
+h2 {
+    color:white;
+}
+li {
+    color:white;
 }

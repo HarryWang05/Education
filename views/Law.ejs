@@ -2,22 +2,25 @@
 <html>
     <head>
         <title>Law</title>
+        <link rel="stylesheet" href="stylesheets/index.css">
     </head>
     <body>
-        <h1> Law </h1>
-        
-        <div>
-        <A HREF = "/" >Home</A>
-        </div>              
-        
-        
-        <div>
-            <% url.forEach(function(u) { %>
+      <div id="header">
+        <h1 id="topicselection" style = "text-align:center;"> Rebound Education </h1>
+      </div>
+      <div id="nav"> <a href="/">Home</a>  <a href="share">Share</a>  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact Us</a>  <a href="aboutus">About Us</a>  <a href="login">Log In</a>
+      </div>    
+          <div>
+          <br/>
+          <br/>
+          <br/>
+    <img src="Logo.png" alt="Our Logo" width=450px length =450px id="first">
+        <h2>Law</h2>    
+        <% url.forEach(function(u) { %>
                 <li> url: <%= u %> </li>
               <% }); %>
-
-
-        
-        </div>
+    <div class="footer">
+        <p>Fun fact: Lawyers are known to practice Law</p>
+    </div>
     </body>
 </html>
