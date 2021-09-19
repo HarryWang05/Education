@@ -5,6 +5,7 @@ const name = "loginInfo";
 let cookieParser = require('cookie-parser');
 let app = express()
 app.use(cookieParser());
+var loggedinUSERNAME;
 
 
 const {
@@ -39,7 +40,6 @@ router.post('/', function(req, res) {
     con.query('SELECT * FROM userInfo', (err, rows) => {
         if (err) throw err;
         numberofUSERS = rows.length;
-        console.log(numberofUSERS);
         var duplicatedUser = false;
         var index = 0;
 
@@ -48,6 +48,8 @@ router.post('/', function(req, res) {
             if (rows[i]["name"] == username) {
                 duplicatedUser = true;
                 index = i;
+                loggedinUSERNAME = username;
+                
             }
         }
         //If user doesn't exist on the database 
@@ -68,8 +70,6 @@ router.post('/', function(req, res) {
             }
 
         }
-        console.log(where + '     outside');
-        console.log('ttttttt');
         if (what_to_render == true) {
             console.log(where);
             if (where) {

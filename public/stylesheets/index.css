@@ -1,3 +1,30 @@
+h1 {
+    background-color: rgb(33, 58, 27);
+    color: white;
+    font-family: 'comic sans';
+
+}
+img {
+    bottom: 300;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #c4c4c4;
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+}
+.square {
+    position: absolute;
+    width: 267px;
+    height: 501px;
+    bottom: 300;
+    background: #C4C4C4;
+}
+/*
 nav {
     padding: 2%;
     position: fixed;
@@ -5,3 +32,4 @@ nav {
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
 }
+*/

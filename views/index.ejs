@@ -2,89 +2,110 @@
 <html>
     <head>
         <title>Google Domains</title>
+        <link rel="stylesheet" href="index.css">
         <style>
             h1 {text-align: center;}
         </style> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!--<script type=''-->
+
     </head>
     <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-sm navbar-inverse">
+                <a class="navbar-brand" href="#">
+                    <img src="logo.png" alt="Bootstrap" width="30" height="24" class="d-inline-block align-top">
+                    <span class="hidden">Bootstrap</span>
+                  </a>
+                <button 
+                    class="navbar-toggler" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#toggleMobileMenu" 
+                    aria-controls="toggleMobileMenu" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation"
+                >
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="toggleMobileMenu">
+                
+                    <ul class="navbar-nav ms-auto text-center">
+                        <li>
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">asfdadf</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">asdfadf</a>
+                        </li>
+                    </ul>
 
-    <header>
-        <div>
-            <nav>FIXED</nav>
-        </div>
-    </header>
+                </div>
+            </nav>
+          </div>
+
+
     <h1 id="topicselection" style = "text-align:center;"> Topic Selection </h1>
     
+    <div class="row">
+    <A HREF = "login" style="text-align:center;">Login</A>
+    </div class="row">
     <div>
-    <A HREF = "login" style = "text-align:center;">Login</A>
-
+    <A HREF = "share" style="text-align:center;">Share</A>
     </div>
-
     <div>
-    <A HREF = "share" style = "text-align:center;">Share</A>
-    
+    <A HREF = "CS" style="text-align:center;">CS</A>
     </div>
       
     <div id= "Selection">
-        <form action= "action_page.php" target="_blank" method="get">
+      
+    <div class="column">
+        <div class="row">
+            <div class="col-sm-4">
+                <form action= "action_page.php" target="_blank" method="get">
 
 
-            <label for= "topic">Topic: </label>
-            <select name= "topic">
-                
-                <option value= "0" selected disabled>Subject</option>
-                <option value= "Math">Math</option>
-                <option value= "Science">Science</option>
-                <option value= "CS">CS</option>
-                <option value= "French">French</option>
-                <option value= "English">English</option>
-                <option value= "Art">Art</option>
-               
-                </select>
-            <div>
-            <img src="logo.png" style="text-align:center" alt="Our Logo">
+                    <label for= "topic">Topic: </label>
+                    <select name= "topic">
+                        
+                        <option value= "0" selected disabled>Subject</option>
+                        <option value= "Math">Math</option>
+                        <option value= "Science">Science</option>
+                        <option value= "CS">CS</option>
+                        <option value= "French">French</option>
+                        <option value= "English">English</option>
+                        <option value= "Law">Law</option>
 
-            <button type= "submit" value="Submit">Submit</button>
+                        </select>
+                    <div>
+                    
+                    <button type= "submit" value="Submit">Submit</button>
+                    </div>
             </div>
-    <style>
-        h1 {
-            background-color: rgb(33, 58, 27);
-            color: white;
-            font-family: 'comic sans';
+            <div class="col-sm-4">
+              <h3>Column 2</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+              <h3>Column 3</h3>        
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+          </div>
+        </div>
+    </div>
 
-        }
-        img {
-            bottom: 300;
-        }
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #c4c4c4;
-            color: white;
-            text-align: center;
-            font-family: sans-serif;
-        }
-        .square {
-            position: absolute;
-            width: 267px;
-            height: 501px;
-            bottom: 300;
-            background: #C4C4C4;
-        }
-    </style>
+    <img src="logo.png" style="text-align:center" alt="Our Logo" width=200px length =200px>
     <div class="footer">
         <p>Follow us on Instagram @ReboundEducation</p>
     </div>
-        
-
-            
-
-        
-
-
-
-
     </body>
 </html>

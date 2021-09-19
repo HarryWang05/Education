@@ -1,0 +1,22 @@
+
+
+h1 {
+    text-align: center;
+    background-color: rgb(33, 58, 27);
+    color: white;
+}
+body {
+    background-color: white;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #c4c4c4;
+    color: white;
+    text-align: center;
+    font-style: bold;
+    font-family: sans-serif;
+    padding:5px 0px 5px 10px;
+    }

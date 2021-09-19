@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
+const cookieParser = require('cookie-parser');
+const app = express();
+app.use(cookieParser());
 const name = "resources";
 const {
     dbPassword,
 } = require("../info.json");
+const {loggedinUSERNAME} = require('./login.js');
 
 
 router.get('/', function(req, res, next) {
@@ -41,15 +45,17 @@ router.post('/', function(req, res) {
             console.log("Database created");
         });
 
+        
+        
         //CREATES TABLE IF IT DOESNT EXIST
-        var sql = "CREATE TABLE IF NOT EXISTS " + name +" (URL VARCHAR(255), postersUsername VARCHAR(255), datePosted VARCHAR(255))";
+        var sql = "CREATE TABLE IF NOT EXISTS " + topic + " (URL VARCHAR(255), postersUsername VARCHAR(255), datePosted VARCHAR(255))";
         con.query(sql, function(err, result) {
             if (err) throw err;
-            console.log("Table " + name + " created");
+            console.log("Table " + topic + " created");
         });
 
         //PRINTS OUT THE DATA IN TABLE
-        con.query('SELECT * FROM '+name, (err, rows) => {
+        con.query('SELECT * FROM ' + topic, (err, rows) => {
             if (err) throw err;
             numberofUSERS = rows.length;
             console.log(numberofUSERS);
@@ -65,29 +71,30 @@ router.post('/', function(req, res) {
             */
 
             //If URL doesn't exist on the database 
-            if (duplicatedURL == false) {
+            if (duplicatedURL == false)
                 //GETS THE DATE
                 var today = new Date();
-                var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
-                //INSERTS URL/USER/PASSWORD INTO TABLE
-                var sql = "INSERT INTO "+ name +" (URL, postersUsername, datePosted) VALUES ('" + resource + "', '" + postersUsername + "', '" + date + "')";
-                con.query(sql, function(err, result) {
-                    if (err) throw err;
-                    console.log("1 URL inserted");
-                });
-            }
-            //If the URL DOES exist on the database
-            else {
-                //Do something
-            }
-
-            console.log('Data received from ' + name + ':');
+            //INSERTS URL/USER/PASSWORD INTO TABLE
+            var sql = "INSERT INTO " + topic + " (URL, postersUsername, datePosted) VALUES ('" + resource + "', '" + loggedinUSERNAME + "', '" + date + "')";
+            con.query(sql, function(err, result) {
+                if (err) throw err;
+                console.log("1 URL inserted");
+                console.log(loggedinUSERNAME)
+            });
+            console.log('Data received from ' + topic + ':');
             console.log(rows);
         });
 
+        
+    });
+
+    res.render('share', {
+        title: 'Express'
     });
 
 });
+
 
 module.exports = router;

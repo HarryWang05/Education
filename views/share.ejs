@@ -2,9 +2,8 @@
 <html>
     <head>
         <title>Login</title>
-        <style>
-            h1 {text-align: center;}
-        </style> 
+        <link rel="stylesheet" href="share.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     </head>
     <body>
 
@@ -13,6 +12,7 @@
     <A HREF = "/" >select topic</A>
     </div>
 
+    <button onclick="checkCookie()">cookie</button>
     
     <div id= "Selection">
         <form action= "/share" method="POST">
@@ -28,36 +28,22 @@
                 <option value= "CS">CS</option>
                 <option value= "French">French</option>
                 <option value= "English">English</option>
-                <option value= "Art">Art</option>
+                <option value= "Law">Law</option>
 
                 </select>
             <br>
-            <button type="submit" name="submit">Share</button>
+            <span id="submitButton">
+            </span>
             </div>
-            <style>
-                h1 {
-                    background-color: rgb(33, 58, 27);
-                    color: white;
-                }
-                body {
-                    background-color: white;
-                }
-                .footer {
-                    position: fixed;
-                    left: 0;
-                    bottom: 0;
-                    width: 100%;
-                    background-color: #c4c4c4;
-                    color: white;
-                    text-align: center;
-                    font-style: bold;
-                    font-family: sans-serif;
-                    padding:5px 0px 5px 10px;
-                    }
-            </style>
+            
             <div class="footer">
                 <p>WARNING: The distribution of explicit images or videos will result in a permanent ban</p>
             </div>
-        </div>
-    </head>
+        </form>
+        <span id="fakeButton">
+            <button onclick="notsigned()">Share</button>
+        </span>
+    </div>
+    <script src="javascripts/share_script.js"></script>
+    </body>
 </html>
